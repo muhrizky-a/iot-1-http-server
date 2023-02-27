@@ -47,7 +47,7 @@ void setup() {  //Pengaturan Pin
   webpage += "<a href=\"LED1ON\"\"><button>ON</button></a><a href=\"LED1OFF\"\"><button>OFF</button></a><br>";
   webpage += "LED 2 : ";
   webpage += "<a href=\"LED2ON\"\"><button>ON</button></a><a href=\"LED2OFF\"\"><button>OFF</button></a><br>";
-  webpage += "LED 3 : ";
+  webpage += "LED BUILTIN : ";
   webpage += "<a href=\"LED_BUILTINON\"\"><button>ON</button></a><a href=\"LED_BUILTINOFF\"\"><button>OFF</button></a></br>";
 
   // Membuat file webpage 
@@ -59,32 +59,26 @@ void setup() {  //Pengaturan Pin
   server.on("/LED1ON", []() {
     server.send(200, "text/html", webpage);
     digitalWrite(LED1, HIGH);
-    delay(1000);
   });
   server.on("/LED2ON", []() {
     server.send(200, "text/html", webpage);
     digitalWrite(LED2, HIGH);
-    delay(1000);
   });
   server.on("/LED_BUILTINON", []() {
     server.send(200, "text/html", webpage);
     digitalWrite(LED_BUILTIN, HIGH);
-    delay(1000);
   });
   server.on("/LED1OFF", []() {
     server.send(200, "text/html", webpage);
     digitalWrite(LED1, LOW);
-    delay(1000);
   });
   server.on("/LED2OFF", []() {
     server.send(200, "text/html", webpage);
     digitalWrite(LED2, LOW);
-    delay(1000);
   });
   server.on("/LED_BUILTINOFF", []() {
     server.send(200, "text/html", webpage);
     digitalWrite(LED_BUILTIN, LOW);
-    delay(1000);
   });
 
   server.begin();
